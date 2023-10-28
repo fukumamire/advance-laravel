@@ -29,38 +29,38 @@
 <form action="/add" method="post">
     <table>
     @csrf
-    @if ($errors->has('name'))
+    @error('name')
     <tr>
         <th style="background-color: red">ERROR</th>
         <td>
             {{$errors->first('name')}}
         </td>
     </tr>
-    @endif
+    @enderror 
     <tr>
       <th>name</th>
       <td><input type="text" name="name"></td>
     </tr>
-    @if ($errors->has('age'))
+    @error('age')
      <tr>
         <th style="background-color: red">ERROR</th>
         <td>
             {{$errors->first('age')}}
         </td>
     </tr>
-    @endif  
+    @enderror 
     <tr>
         <th>age</th>
         <td><input type="text" name="age"></td>
     </tr>
-    @if ($errors->has('nationality'))
+    @error('nationality')
     <tr>
         <th style="background-color: red">ERROR</th>
         <td>
             {{$errors->first('nationality')}}
         </td>
     </tr>
-    @endif  
+    @enderror   
     <tr>
         <th>nationality</th>
         <td><input type="text" name="nationality"></td>
