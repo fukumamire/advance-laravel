@@ -86,4 +86,10 @@ class AuthorController extends Controller
     {
         return view('verror');
     }
+
+    public function relate(Request $request) //モデルのリレーション追記
+{
+    $items = Author::all();
+    return view('author.index', ['items' => $items]);
+}
 }
