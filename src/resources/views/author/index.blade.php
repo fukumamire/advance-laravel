@@ -36,13 +36,14 @@ td table tbody tr td {
     </td>
     <td>
         @if ($item->books != null)
-            <table width="100%">
+            <table width="100%"> 
                 @foreach ($item->books as $obj)
                 <tr>
                     <td>{{ $obj->getTitle() }}</td>
+                    
                 </tr>
                 @endforeach
-            </table>
+            </table> 
         @endif
     </td>
   </tr>
