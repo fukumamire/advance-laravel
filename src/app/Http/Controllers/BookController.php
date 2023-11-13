@@ -16,7 +16,7 @@ class BookController extends Controller
         DB::enableQueryLog();
         dump(DB::getQueryLog());
         // return view('book.index', ['items' => $items]);
-        dd($items);
+       
         
     }
 
