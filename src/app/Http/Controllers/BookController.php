@@ -10,11 +10,11 @@ class BookController extends Controller
 {
     public function index(Request $request){
         DB::enableQueryLog();
-        $items = Book::all();  
-        foreach ($items as $item) {
-        $item->author;
-        }
-       
+        // $items = Book::all();  
+        // foreach ($items as $item) {
+        // $item->author;
+        // }
+        $items = Book::with('author')->get();
         dump(DB::getQueryLog());
         return view('book.index', ['items' => $items]);
        
