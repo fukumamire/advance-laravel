@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Book;
+use Illuminate\Support\Facades\DB;
 
 class BookController extends Controller
 {
@@ -12,7 +13,8 @@ class BookController extends Controller
          foreach ($items as $item) {
         $item->author;
         }
-      
+        DB::enableQueryLog();
+        dump(DB::getQueryLog());
         // return view('book.index', ['items' => $items]);
         dd($items);
         
