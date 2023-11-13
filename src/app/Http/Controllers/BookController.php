@@ -9,13 +9,14 @@ use Illuminate\Support\Facades\DB;
 class BookController extends Controller
 {
     public function index(Request $request){
+        DB::enableQueryLog();
         $items = Book::all();  
-         foreach ($items as $item) {
+        foreach ($items as $item) {
         $item->author;
         }
-        DB::enableQueryLog();
+       
         dump(DB::getQueryLog());
-        // return view('book.index', ['items' => $items]);
+        return view('book.index', ['items' => $items]);
        
         
     }
