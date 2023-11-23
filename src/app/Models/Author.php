@@ -19,10 +19,15 @@ class Author extends Model
   // 追記：ここまで
 
   public function book(){
-  return $this->hasOne('App\Models\Book');
+    return $this->hasOne('App\Models\Book');
   }
 
   public function books(){
-  return $this->hasMany('App\Models\Book');
-}
+    return $this->hasMany('App\Models\Book');
+  }
+// 多対多のリレーション
+  public function reviews()
+  {
+    return $this->belongsToMany(Book::class);
+  }
 }
