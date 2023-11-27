@@ -2,6 +2,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\SessionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,11 +27,12 @@ Route::get('/author/{author}', [AuthorController::class, 'bind']);
 Route::get('/verror', [AuthorController::class, 'verror']);
 
 Route::prefix('book')->group(function () {
-         Route::get('/', [BookController::class, 'index']);
-     Route::get('/add', [BookController::class, 'add']);
-     Route::post('/add', [BookController::class, 'create']);
+    Route::get('/', [BookController::class, 'index']);
+    Route::get('/add', [BookController::class, 'add']);
+    Route::post('/add', [BookController::class, 'create']);
     });
 
-
-
 Route::get('/relation', [AuthorController::class, 'relate']);
+// セッションについて学ぼう
+Route::get('/session', [SessionController::class, 'getSes']);
+Route::post('/session', [SessionController::class, 'postSes']);

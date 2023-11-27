@@ -20,8 +20,6 @@ td table tbody tr td {
 
 </style>
 @section('title', 'author.index.blade.php')
-
-@section('content')
 <table>
   <tr>
     <th>Author</th>
@@ -34,11 +32,11 @@ td table tbody tr td {
     </td>
     <td>
       <table> 
-         @foreach ($item->books as $obj)
+        @foreach ($item->books as $obj)
         <tr>
-          <td>{{ $obj->getTitle() }}</td>
+          <td>{{ $obj->getTitle()}}</td>
         </tr>
-         @endforeach
+        @endforeach
       </table> 
     </td>
   </tr>
@@ -54,4 +52,6 @@ td table tbody tr td {
   </tr>
   @endforeach
 </table>
+@section('content')
+
 @endsection
