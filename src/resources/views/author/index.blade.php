@@ -53,5 +53,4 @@ td table tbody tr td {
   </tr>
   @endforeach
 </table>
-
 @endsection
