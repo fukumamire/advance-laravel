@@ -20,6 +20,7 @@ td table tbody tr td {
 
 </style>
 @section('title', 'author.index.blade.php')
+@section('content')
 <table>
   <tr>
     <th>Author</th>
