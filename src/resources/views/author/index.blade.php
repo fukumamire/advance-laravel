@@ -53,6 +53,5 @@ td table tbody tr td {
   </tr>
   @endforeach
 </table>
-@section('content')
 
 @endsection
