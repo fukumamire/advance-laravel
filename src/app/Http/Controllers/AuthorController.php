@@ -13,7 +13,8 @@ class AuthorController extends Controller
     public function index()
     {
         // ↓ページネーション
-        $authors = Author::simplePaginate(4);
+        $authors = Author::Paginate(4);
+    
         // $authors = Author::all();
         return view('index', ['authors' => $authors]);
     } 
