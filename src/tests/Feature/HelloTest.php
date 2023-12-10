@@ -10,16 +10,19 @@ class HelloTest extends TestCase
 {
     public function testHello()
     {
-    
+        //これは単なる確認のためのダミーのアサーションです。true が正しいことを確認しています。実際のテストコードではこれを削除しても構いません。↓
         $this->assertTrue(true);
-    
-        $arr = [];
-        $this->assertEmpty($arr);
 
-        $txt = "Hello World";
-        $this->assertEquals('Hello World', $txt);
+        // ①
+        $response = $this->get('/');
+        // ②
+        $response->assertStatus(200);
 
-        $n = random_int(0, 100);
-        $this->assertLessThan(100, $n);
+        // ③
+        $response = $this->get('/no_route');
+        // ④
+        $response->assertStatus(404);
+        
     }
 }
+
