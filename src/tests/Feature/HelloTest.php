@@ -5,24 +5,24 @@ namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use App\Models\User;
 
 class HelloTest extends TestCase
 {
+    use RefreshDatabase;
+
     public function testHello()
     {
-        //これは単なる確認のためのダミーのアサーションです。true が正しいことを確認しています。実際のテストコードではこれを削除しても構いません。↓
-        $this->assertTrue(true);
-
-        // ①
-        $response = $this->get('/');
-        // ②
-        $response->assertStatus(200);
-
-        // ③
-        $response = $this->get('/no_route');
-        // ④
-        $response->assertStatus(404);
-        
+        User::factory()->create([
+            'name'=>'aaa',
+            'email'=>'bbb@ccc.com',
+            'password'=>'test12345'
+        ]);
+        $this->assertDatabaseHas('users',[
+                'name'=>'aaa',
+                'email'=>'bbb@ccc.com',
+                'password'=>'test12345'
+        ]);    
     }
 }
 
