@@ -9,6 +9,12 @@ class Author extends Model
 {
     use HasFactory;
     protected $fillable = ['name', 'age', 'nationality'];
+
+    public static $rules = array(
+    'name' => 'required',
+    'age' => 'integer|min:0|max:150',
+    'nationality' => 'required'
+    );
     
     // 追記：ここから
     public function getDetail()
