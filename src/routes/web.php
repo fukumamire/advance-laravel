@@ -3,6 +3,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\SessionController;
+use \App\Models\Person;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,3 +38,7 @@ Route::get('/relation', [AuthorController::class, 'relate']);
 // セッションについて学ぼう
 Route::get('/session', [SessionController::class, 'getSes']);
 Route::post('/session', [SessionController::class, 'postSes']);
+
+Route::get('/softdelete', function () {
+    Person::find(1)->delete();
+});
