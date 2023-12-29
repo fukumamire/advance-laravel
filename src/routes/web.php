@@ -42,3 +42,25 @@ Route::post('/session', [SessionController::class, 'postSes']);
 Route::get('/softdelete', function () {
     Person::find(1)->delete();
 });
+
+// 削除されたレコードの確認
+// ルートの定義
+Route::get('softdelete/get', function() {
+    // Personモデルから論理削除されたデータだけを取得
+    $person = Person::onlyTrashed()->get();
+
+    //取得したデータを出力
+    dd($person);
+});
+
+Route::get('softdelete/store', function() {
+    $result = Person::onlyTrashed()->restore();
+    echo $result;
+});
+
+// 論理削除したレコードの完全削除
+Route::get('softdelete/absolute', function() {
+    $result = Person::onlyTrashed()->forceDelete();
+    echo $result;
+});
+
