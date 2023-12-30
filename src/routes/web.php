@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\SessionController;
 use \App\Models\Person;
+use App\Models\Product;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,3 +65,10 @@ Route::get('softdelete/absolute', function() {
     echo $result;
 });
 
+
+Route::get('uuid',function() {
+    $products = Product::all();
+    foreach($products as $product){
+        echo $product.'<br>';
+    }   
+});
